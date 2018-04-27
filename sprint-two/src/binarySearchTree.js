@@ -12,12 +12,6 @@ var treeMethodsBinary = {};
 
 treeMethodsBinary.insert = function(value) {
    var child = BinarySearchTree(value);
-
-   // function recurseThroughChildren (value) {
-   //  if (child.value < this.value && this.left) {
-   //    recurseThroughChildren(value)
-   //  }     
-   // }
   if (child.value < this.value) {
     if(this.left.value){
       this.left.insert(child.value);
@@ -31,14 +25,10 @@ treeMethodsBinary.insert = function(value) {
     } else {
       this.right = child;
     }
-  }
-   
-   
-   
+  } 
 };
 
 treeMethodsBinary.contains = function(target) {
-  console.log(this.value,  target)
   if(this.value === target){
     return true;
   }
