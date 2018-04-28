@@ -47,9 +47,15 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
   
-  it('should store data in separate bucket', function() {
-    hashTable.insert('Steven', 'Spielberg');
-    expect(hashTable.bucket.length).to.equal(1);
+  it('should hold more than the limit', function() {
+    _.each(people, function(person) {
+      var firstName = person[0];
+      var lastName = person[1];
+      hashTable.insert(firstName, lastName);
+    });
+    hashTable.insert('Bob', 'Loblaw');
+    hashTable.insert('Mister', 'Spielberg');
+    expect(hashTable.retrieve('Alan')).to.equal('Turing');
   });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
