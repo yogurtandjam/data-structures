@@ -10,11 +10,17 @@ var LinkedList = function() {
       list.tail = newNode;
     } else {
       list.tail.next = newNode;
+      list.tail = newNode;
     }
+    // console.log(list)
   };
 
   list.removeHead = function() {
+    console.log(list.head)
+    var oldhead = list.head;
     list.head = list.head.next;
+    // console.log(list.head)
+    return oldhead.value;
   };
   
   list.contains = function(target) {
