@@ -37,4 +37,12 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+  
+  it('should place higher values on the right side', function() {
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(100);
+    expect(binarySearchTree.right.right.right.value).to.equal(100);
+  });
+  
 });
