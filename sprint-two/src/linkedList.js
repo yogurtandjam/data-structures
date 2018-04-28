@@ -12,18 +12,26 @@ var LinkedList = function() {
       list.tail.next = newNode;
       list.tail = newNode;
     }
-    // console.log(list)
   };
 
   list.removeHead = function() {
-    console.log(list.head)
     var oldhead = list.head;
     list.head = list.head.next;
-    // console.log(list.head)
     return oldhead.value;
   };
   
   list.contains = function(target) {
+    var within = function(item, target) {
+      if (item.value === target){
+        return true;
+      } else {
+        if (item.next){
+          return within (item.next, target);
+        }
+      }
+      return false;
+    }
+    return within(list.head, target);
   };
   return list;
 };
