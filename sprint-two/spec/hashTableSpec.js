@@ -1,4 +1,4 @@
-describe.only('hashTable', function() {
+describe('hashTable', function() {
   var hashTable;
   var people = [['Steven', 'Tyler'], ['George', 'Harrison'], ['Mr.', 'Doob'], ['Dr.', 'Sunshine'], ['John', 'Resig'], ['Brendan', 'Eich'], ['Alan', 'Turing']];
 
@@ -45,6 +45,11 @@ describe.only('hashTable', function() {
     expect(hashTable.retrieve(v1)).to.equal(v1);
     expect(hashTable.retrieve(v2)).to.equal(v2);
     window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+  
+  it('should store data in separate bucket', function() {
+    hashTable.insert('Steven', 'Spielberg');
+    expect(hashTable.bucket.length).to.equal(1);
   });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)

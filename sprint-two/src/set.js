@@ -8,12 +8,20 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this.storage[this.index] = item;
-  this.index++;
+  var isTrue = false;
+  for (let i = 1; i < this.index; i++) {
+    if (this.storage[i] === item) {
+      isTrue = true;
+    }
+  }
+  if (!isTrue) {
+    this.storage[this.index] = item;
+    this.index ++;
+  }
 };
 
 setPrototype.contains = function(item) {
-  for (let i = 0; i < this.index; i++) {
+  for (let i = 1; i < this.index; i++) {
     if (this.storage[i] === item) {
       return true;
     }

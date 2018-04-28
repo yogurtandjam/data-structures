@@ -10,7 +10,6 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
-  console.log('added ' + node)
   this.newGraph[this.index] = node;
   this.index++;
 };
@@ -27,14 +26,14 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
-
-  console.log('deleted ' +node)
   for(var i in this.newGraph){
     if(this.newGraph[i] === node){
       delete this.newGraph[i];
+      this.index--;
       for(var j in this.connected){
         if(this.connected[j].includes(node)){
           delete this.connected[j]
+          this.connectedIndex--;
         }
       }
     }

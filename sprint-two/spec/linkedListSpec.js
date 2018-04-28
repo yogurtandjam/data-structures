@@ -1,4 +1,4 @@
-describe('linkedList', function() {
+describe.only('linkedList', function() {
   var linkedList;
 
   beforeEach(function() {
@@ -49,6 +49,10 @@ describe('linkedList', function() {
     linkedList.addToTail(5);
     linkedList.removeHead();
     expect(linkedList.contains(4)).to.equal(false);
+  });
+  
+  it ('should contain nodes that point to the next node', function() {
+    
   });
 
   // add more tests here to test the functionality of linkedList

@@ -40,5 +40,15 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
-
+  
+  it('should execute a callback on every value in the tree', function() {
+    var array = [];
+    var func = function(value){array.push(value)};
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8); 
+    tree.changesAllValues(func);
+    expect(array).to.eql([5, 7, 6, 8]);
+  })
 });

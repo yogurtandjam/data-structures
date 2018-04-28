@@ -31,6 +31,17 @@ treeMethods.contains = function(target) {
   return false;
 };
 
+treeMethods.changesAllValues = function(cb) {
+  for (var i in this.children){
+    if(this.children[i].value){
+      cb(this.children[i].value);
+    }
+    if(typeof this.children[i] === 'object'){
+      this.children[i].changesAllValues(cb);
+    }
+  }
+}
+
 
 
 /*
